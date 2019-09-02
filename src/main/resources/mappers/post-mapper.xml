@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harin.t0902.mapper.PostMapper">
+
+	<select id="getData" resultType="PostVO">
+		SELECT *
+		  FROM `post`
+		 WHERE delYn="N"
+	</select>
+	
+	<insert id="insertT" parameterType="PostVO">
+		INSERT INTO `post` (`comment`,`writer`)
+		     VALUES (#{comment},#{writer})
+	</insert>
+	
+	<update id="updateT" parameterType="PostVO">
+		UPDATE `post`
+		   SET comment = #{comment},
+		       writer = #{writer}
+		 WHERE `pno` = #{pno} and writer=#{writer}
+	</update>
+	
+	<update id="deleteT" parameterType="PostVO">
+		UPDATE `post`
+		   SET DELYN = 'Y'
+		 WHERE `pno` = #{pno} and writer=#{writer}
+	</update>
+</mapper>
