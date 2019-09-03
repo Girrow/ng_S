@@ -11,7 +11,7 @@ import com.harin.t0902.mapper.PostMapper;
 import com.harin.t0902.vo.PostVO;
 
 @Service
-public class PostDataService {
+public class PostDataService implements PostDataServiceI {
 
 	@Autowired
 	PostMapper pm;

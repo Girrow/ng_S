@@ -51,7 +51,7 @@ public class UserLoginService implements UserLoginServiceI {
 		}
 		System.out.println("checkId =="+checkId);
 		returnMap.put("message",uv.getUsername()+"으로 로그인 완료!");
-		returnMap.put("secStatus","200");
+		returnMap.put("secStatus","222");
 		session.setAttribute("user", uv.getUsername());
 		return returnMap;
 	}

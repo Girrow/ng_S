@@ -20,16 +20,11 @@
 </head>
 
 <body ng-app="lynnApp" ng-controller="MainCtrl">
-<%
-	String username="";
-	if(session.getAttribute("user")!= null){
-		username=session.getAttribute("user").toString();
-	}
-%>
-
-	ID = ${sessionScope.user}
-	<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal">Modal Open</button>
+	
 	<div class="container">
+	<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal">Modal Open</button>
+	<button type="button" class="btn btn-success" onclick="location.href='/t0902/logout'">Logout</button>
+	${sessionScope.user}<br>
 		<h3 id="idInfo">Test</h3>
 		<p>
 			위의 버튼 3개만 이용하여 추가, 수정, 삭제 이벤트를 구현 <br> 1) 추가 : "입력하세요" 입력창을 이용하여 데이터 생성<br> 2) 수정 : 선택(체크박스)를 선택된 내용만 "입력하세요" 입력창으로 데이터를 가져온 후
@@ -48,13 +43,13 @@
 					<input type="text" class="form-control" id="text" name="text" placeholder="입력하세요." autocomplete="off" ng-model="dataInfo.comment">
 				</div>
 				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary" id="submit" ng-click="formAction('insert')">추가</button>
+					<button type="button" class="btn btn-primary" id="submit" ng-click="formAction('insert')" >추가</button>
 				</div>
 				<div class="col-xs-1">
-					<button type="button" class="btn btn-success disabled" id="update" ng-click="formAction('update')">수정</button>
+					<button type="button" class="btn btn-success" id="update" ng-click="formAction('update')" ng-disabled="disableCheck">수정</button>
 				</div>
 				<div class="col-xs-1">
-					<button type="button" class="btn btn-danger disabled" id="remove" ng-click="formAction('delete')">삭제</button>
+					<button type="button" class="btn btn-danger" id="remove" ng-click="formAction('delete')" ng-disabled="disableCheck">삭제</button>
 				</div>
 			</div>
 		</form>
@@ -125,3 +120,4 @@
 </body>
 
 </html>
+

@@ -50,7 +50,7 @@ public class DataController {
 				resultMap = pds.crudExceptR(pv, branch);
 			} else {
 				resultMap.put("status", "400");
-				resultMap.put("returnInfo", "로그인 되어있지 않습니다.");
+				resultMap.put("comment", "로그인 되어있지 않습니다.");
 			}
 		}
 		return resultMap;
@@ -86,7 +86,6 @@ public class DataController {
 		}
 		return resultMap;
 	}
-	
 	
 	/*
 	 * Validation Method 처리
